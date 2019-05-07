@@ -1,19 +1,25 @@
 {
   "name": "typescript-npm-starter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A great foundation to create Node packages with Typescript and Jest.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "test": "jest"
+    "postversion": "git push && git push --tags",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "test": "jest",
+    "version": "npm run format && git add -A src"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:mrpharderwijk/typescript-npm-starter.git"
   },
-  "keywords": [],
+  "keywords": ["typscript", "jest", "starter", "seed", "node", "npm"],
   "author": "Marnix Harderwijk <marnix.harderwijk@rocketscience.io> (http://marnixharderwijk.com)",
   "license": "ISC",
   "bugs": {
